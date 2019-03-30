@@ -1,6 +1,6 @@
 {
   "name": "mustart",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,7 +35,8 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
-    "mustart-gradients": "0.0.1",
-    "mustart-media-queries": "0.0.5"
-  }
+    "mustart-gradients": "0.0.3",
+    "mustart-media-queries": "0.0.6"
+  },
+  "dependencies": {}
 }

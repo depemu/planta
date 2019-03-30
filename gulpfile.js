@@ -106,7 +106,8 @@ gulp.task('templates', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(myJsFiles.concat(jsVendorFiles))
+  var mustart = require('./mustart.json')
+  return gulp.src(mustart.scripts.concat(myJsFiles))
   .pipe(plumber({ errorHandler: onError }))
   //.pipe(sourcemaps.init())
   .pipe(gconcat('bundle.js'))
