@@ -1,0 +1,32 @@
+=tunas($width, $height)
+  $_leaf-width: $width / 2
+  $_stick-height: $height - $_leaf-width
+  $_stick-width: $_leaf-width / 10
+
+  +size($width, $height)
+  position: relative
+  .leaf
+    position: absolute
+    +size($_leaf-width)
+    &:nth-child(1)
+      left: 0
+      top: $_leaf-width / 2
+      z-index: 1
+      @extend .leaf-reverse
+    &:nth-child(2)
+      right: $_stick-width / 2
+      @extend .mustart-gradient-leaf-flip
+  .stick
+    position: absolute
+    top: $_leaf-width
+    left: $_leaf-width - $_stick-width / 2
+    height: $_stick-height
+    width: $_stick-width
+    +border-top-radius(0)
+  &-balance
+    .leaf
+      &:nth-child(1)
+        top: 0
+      &:nth-child(2)
+        right: 0
+    .stick

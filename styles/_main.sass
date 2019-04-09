@@ -1,14 +1,37 @@
 +global-reset
 +mustart-gradients
-+mustart-gradient(#9cbf11, green, my)
++mustart-gradient($leaf-color-light, $leaf-color-dark, leaf)
 
 body
   font-family: $main-font
   padding: $padding
 
-h1
-  span
-    text-transform: lowercase
-    font:
-      size: 300%
-      weight: bold
+.group
+  +clearfix
+  margin-bottom: -$padding
+  > section
+    border: 1px solid #eee
+    padding: $padding
+    +size($planta-default-width, $planta-default-height)
+    +border-radius(10px)
+    float: left
+    margin:
+      bottom: $padding
+      right: $padding
+    &:last-child
+      margin-right: 0
+
+.tunas
+  +tunas($planta-default-width, $planta-default-height)
+
+.leaf
+  @extend .mustart-gradient-leaf
+  +size($leaf-default-width)
+  +border-radius($leaf-default-width 0)
+  &-reverse
+    +border-radius(0 $leaf-default-width)
+
+.stick
+  background: $leaf-color-dark
+  +size($stick-default-width, $stick-default-height)
+  +border-radius($stick-default-width)
