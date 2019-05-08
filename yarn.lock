@@ -3262,13 +3262,13 @@ multipipe@^0.1.2:
   dependencies:
     duplexer2 "0.0.2"
 
-mustart-gradients@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/mustart-gradients/-/mustart-gradients-0.0.5.tgz#ae39da80220c277751901ad2572c8a4bab751051"
-
-mustart-media-queries@0.0.6:
+mustart-gradients@0.0.6:
   version "0.0.6"
-  resolved "https://registry.yarnpkg.com/mustart-media-queries/-/mustart-media-queries-0.0.6.tgz#6d0f832a20a4fc37245bb25672a16aa1dc46ac23"
+  resolved "https://registry.yarnpkg.com/mustart-gradients/-/mustart-gradients-0.0.6.tgz#dc5e4de1e97a947726084c8e9ed4e728ae537498"
+
+mustart-media-queries@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/mustart-media-queries/-/mustart-media-queries-0.0.7.tgz#dcde4f0ab30e164b56dc46e25befc65720866576"
 
 nan@^2.12.1, nan@^2.13.2:
   version "2.13.2"
