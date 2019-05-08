@@ -1,20 +1,20 @@
 {
-  "name": "mustart",
-  "version": "0.1.1",
+  "name": "planta",
+  "version": "0.0.1",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/depemu/mustart.git"
+    "url": "git+https://github.com/depemu/planta.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/depemu/mustart/issues"
+    "url": "https://github.com/depemu/planta/issues"
   },
-  "homepage": "https://github.com/depemu/mustart#readme",
+  "homepage": "https://github.com/depemu/planta#readme",
   "devDependencies": {
     "beeper": "^1.1.1",
     "bourbon": "^5.1.0",
@@ -36,7 +36,7 @@
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
     "mustart-gradients": "0.0.5",
-    "mustart-media-queries": "0.0.6"
+    "mustart-media-queries": "0.0.7"
   },
   "dependencies": {}
 }
