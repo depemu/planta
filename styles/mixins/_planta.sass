@@ -23,6 +23,7 @@
     height: $_stick-height
     width: $_stick-width
     +border-top-radius(0)
+
   &-balance
     .leaf
       &:nth-child(1)
@@ -30,3 +31,7 @@
       &:nth-child(2)
         right: 0
     .stick
+  &-single
+    .leaf
+      &:nth-child(1)
+        display: none
