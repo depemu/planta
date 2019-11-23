@@ -33,6 +33,7 @@ var onError            = function(err) { // Custom error msg with beep sound and
     this.emit('end');
     gutil.log(gutil.colors.red(err));
 };
+var buildDirectory = 'public';
 
 function getBowerDirectory() {
   var bowerComponents = "./bower_components";
@@ -50,7 +51,7 @@ function setupJquery(data) {
   var jqueryCDN = '    script(src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous")';
   var jqueryLocalFallback = "    <script>window.jQuery || document.write(" + "'<script src=" + '"js/vendor/jquery/dist/jquery/jquery.min.js"' + "><\\/script>')</script>";
   gulp.src(jqueryPath)
-  .pipe(gulp.dest('./build/js/vendor/jquery/dist/jquery'));
+  .pipe(gulp.dest('./' + buildDirectory + '/js/vendor/jquery/dist/jquery'));
   data.splice(data.length, 0, jqueryCDN);
   data.splice(data.length, 0, jqueryLocalFallback);
 }
@@ -63,11 +64,11 @@ function setupBootstrap(data) {
   var bootstrapJSCDN = '    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/{{BOOTSTRAP_VERSION}}/js/bootstrap.min.js", integrity="{{BOOTSTRAP_SRI_HASH}}", crossorigin="anonymous")';
   var bootstrapJSLocalFallback = "    <script>if(typeof($.fn.modal) === 'undefined'" + ") {document.write('<script src=" + '"/js/vendor/bootstrap/dist/js/bootstrap.min.js"' + "><\\/script>')}</script>";
   gulp.src(bootstrapFontsPath)
-  .pipe(gulp.dest('./build/js/vendor/bootstrap/dist/fonts'));
+  .pipe(gulp.dest('./' + buildDirectory + '/js/vendor/bootstrap/dist/fonts'));
   gulp.src(bootstrapJSPath)
-  .pipe(gulp.dest('./build/js/vendor/bootstrap/dist/js'));
+  .pipe(gulp.dest('./' + buildDirectory + '/js/vendor/bootstrap/dist/js'));
   gulp.src(bootstrapCSSPath)
-  .pipe(gulp.dest('./build/js/vendor/bootstrap/dist/css'));
+  .pipe(gulp.dest('./' + buildDirectory + '/js/vendor/bootstrap/dist/css'));
 
   data.splice(8, 0, bootstrapCSSCDN);
   data.splice(data.length, 0, bootstrapJSCDN);
@@ -95,14 +96,14 @@ gulp.task('styles', function() {
   .pipe(cleanCSS())
   //.pipe(sourcemaps.write())
   .pipe(rename({ suffix: '.min'}))
-  .pipe(gulp.dest('build/css'));
+  .pipe(gulp.dest(buildDirectory + '/css'));
 });
 
 gulp.task('templates', function() {
   gulp.src('./*.pug')
   .pipe(plumber({ errorHandler: onError }))
   .pipe(pug())
-  .pipe(gulp.dest('build/'));
+  .pipe(gulp.dest(buildDirectory + '/'));
 });
 
 gulp.task('scripts', function() {
@@ -114,7 +115,7 @@ gulp.task('scripts', function() {
   .pipe(uglify())
   //.pipe(sourcemaps.write())
   .pipe(rename({ suffix: '.min'}))
-  .pipe(gulp.dest('build/js'));
+  .pipe(gulp.dest(buildDirectory + '/js'));
 });
 
 gulp.task('images', function() {
@@ -123,12 +124,12 @@ gulp.task('images', function() {
     optimizationLevel: 3,
     progressive: true,
     interlaced: true})))
-  .pipe(gulp.dest('build/img/'));
+  .pipe(gulp.dest(buildDirectory + '/img/'));
 });
 
 gulp.task('misc', function() {
   gulp.src('misc/**/*')
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest(buildDirectory + '/'));
 })
 
 gulp.task('setup-src', function() {
@@ -181,9 +182,9 @@ gulp.task('watch', function() {
   browserSync.init({
     server: {
       proxy: "local.build",
-      baseDir: "build/"
+      baseDir: buildDirectory + "/"
     }
   });
 
-  gulp.watch(['build/**'], browserSync.reload);
+  gulp.watch([buildDirectory + '/**'], browserSync.reload);
 });
