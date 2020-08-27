@@ -1,3 +1,14 @@
 {
+  "configuration": {
+    "directory": {
+      "build": "./public",
+      "pages": "./pages",
+      "templates": "./templates",
+      "scripts": "./scripts",
+      "styles": "./styles",
+      "images": "./images",
+      "misc": "./misc"
+    }
+  },
   "scripts": []
 }
