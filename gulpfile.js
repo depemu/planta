@@ -5,7 +5,6 @@ const pug = require('gulp-pug')
 const plumber = require('gulp-plumber')
 const imagemin = require('gulp-imagemin')
 const sourcemaps = require('gulp-sourcemaps')
-const autoprefixer = require('gulp-autoprefixer')
 const cleanCss = require('gulp-clean-css')
 const rename = require('gulp-rename')
 const concat = require('gulp-concat')
@@ -35,10 +34,6 @@ gulp.task('styles', () => {
     .pipe(plumber())
     .pipe(sass({
       indentedSyntax: true
-    }))
-    .pipe(autoprefixer({
-      browsers: ['last 5 versions'],
-      cascade: false
     }))
     .pipe(cleanCss())
     .pipe(rename({
